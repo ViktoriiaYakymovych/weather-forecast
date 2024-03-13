@@ -1,19 +1,20 @@
 import { Suspense } from "react";
-import HeaderNav from "../components/HeaderNav/HeaderNav";
-import Loader from "../components/Loader/Loader";
+import HeaderNav from "../HeaderNav/HeaderNav";
+import Loader from "../Loader/Loader";
 import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { Main } from "./AppLayout.styled";
 
 const AppLayout = () => {
   return (
     <>
       <HeaderNav />
-      <main>
+      <Main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
         <Toaster />
-      </main>
+      </Main>
     </>
   );
 };

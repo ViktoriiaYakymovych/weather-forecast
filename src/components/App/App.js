@@ -1,7 +1,7 @@
 // import api from "./api";
 import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import AppLayout from "../AppLayout";
+import AppLayout from "../AppLayout/AppLayout";
 
 const Home = lazy(() => import("../../pages/Home/Home"));
 const WeatherForCity = lazy(() =>

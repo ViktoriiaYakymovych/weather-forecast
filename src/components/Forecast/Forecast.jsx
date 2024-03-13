@@ -1,3 +1,5 @@
+import {List, Item}from '../CitiesList/CitiesList.styled'
+
 const DAYS_OF_WEEK = [
   "Sunday",
   "Monday",
@@ -10,9 +12,8 @@ const DAYS_OF_WEEK = [
 
 const Forecast = ({ forecast }) => {
   return (
-    <ul>
+    <List>
       {forecast.map((day) => {
-        console.log(day);
         const date = new Date(day.datetimeEpoch * 1000);
         const currentDayIndex = date.getDay();
         const currentDay = DAYS_OF_WEEK[currentDayIndex];
@@ -31,7 +32,7 @@ const Forecast = ({ forecast }) => {
         }
 
         return (
-          <li key={day.datetime}>
+          <Item key={day.datetime}>
             <div>
               <div>
                 <p>{currentDay}</p>
@@ -56,10 +57,10 @@ const Forecast = ({ forecast }) => {
               </p>
               <p>Windspeed: {day.windspeed} km/h</p>
             </div>
-          </li>
+          </Item>
         );
       })}
-    </ul>
+    </List>
   );
 };
 
