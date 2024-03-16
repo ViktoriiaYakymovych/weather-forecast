@@ -5,16 +5,15 @@ import Loader from "../../components/Loader/Loader";
 import CitiesList from "../../components/CitiesList/CitiesList";
 import SearchCityForm from "../../components/SearchCityForm/SearchCityForm";
 import { HomeSection } from "./Home.styled";
-import { useSearchParams } from "react-router-dom";
+// import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
   const [weatherList, setweatherList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const value = searchParams.get("city") ?? "";
-  console.log(value);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const value = searchParams.get("city") ?? "";
 
   useEffect(() => {
     const controller = new AbortController();
@@ -49,8 +48,9 @@ const Home = () => {
     //   const fetchWeatherList = async () => {
     //     try {
     //       setLoading(true);
-    //       const { locations } = await api.fetchWeatherForCities(controller);
-    //       setweatherList([...locations]);
+    //       const resp = await api.fetchCityWeatherForToday(controller, value);
+    //       console.log(resp);
+    //       setweatherList([...resp])
     //     } catch (error) {
     //       if (error.code !== "ERR_CANCELED") {
     //         setError(error.message);
@@ -74,8 +74,8 @@ const Home = () => {
         `Sorry, we can't submit empty request. Please, write what You want to search.`
       );
     }
-    setSearchParams({ city: newCity });
-    setweatherList([]);
+    // setSearchParams({ city: newCity });
+    // setweatherList([]);
     e.target.reset();
   };
 

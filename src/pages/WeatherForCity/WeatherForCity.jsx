@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import api from "../../api";
 import Loader from "../../components/Loader/Loader";
 import Forecast from "../../components/Forecast/Forecast";
+import { HomeSection } from "../Home/Home.styled";
 
 const WeatherForCity = () => {
   const [forecast, setForecast] = useState([]);
@@ -44,12 +45,12 @@ const WeatherForCity = () => {
   }, [city]);
 
   return (
-    <section>
+    <HomeSection>
       <h2>Weather forecast in {address}</h2>
       {forecast && <Forecast forecast={forecast} />}
       {loading && <Loader loading={loading} />}
       {error && <p>Sorry, something went wrong. Please, try to update page.</p>}
-    </section>
+    </HomeSection>
   );
 };
 
